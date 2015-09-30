@@ -12,15 +12,20 @@
             <VisualStateGroup>
                 <VisualState x:Name="wideView">
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="640" />
+                        <AdaptiveTrigger MinWindowWidth="505" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
+
                         
+
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="narrowView">
-                    <VisualState.Setters>
+                    <VisualState.Setters>          
+                        
                         <Setter Target="hub.(Header)" Value="Célula Microsoft ESPOL"/>
+                        
+                        <!--<Setter Target="text.(RelativePanel.Below)" Value="pic"/>-->
                     </VisualState.Setters>
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="0" />
@@ -35,33 +40,21 @@
             <HubSection Header="Quienes Somos">
                 <DataTemplate>
                     <RelativePanel>
-                        <Image Source="Assets/Square150x150Logo.scale-200.png" Height="256" x:Name="pic"/>
-                        <TextBlock Text="asdasdasdasdasdasdasdasdasd" x:Name="text" RelativePanel.RightOf="pic"/>
+                        <Image Source="Assets/Square150x150Logo.scale-200.png" MaxHeight="400" x:Name="pic"/>
+                        <TextBlock Text="asdasdasdasdasdasdasdasdasd" RelativePanel.RightOf="{Binding ElementName=pic}" x:Name="text"/>
                     </RelativePanel>
                 </DataTemplate>
             </HubSection>
             <HubSection Header="Ramas">
                 <DataTemplate>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="128"/>
-                            <RowDefinition Height="16"/>
-                            <RowDefinition Height="128"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="128"/>
-                            <ColumnDefinition Width="16"/>
-                            <ColumnDefinition Width="128"/>
-                            <ColumnDefinition Width="16"/>
-                            <ColumnDefinition Width="128"/>
-                        </Grid.ColumnDefinitions>
-                        <Image Source="Assets/Square150x150Logo.scale-200.png" Grid.Column="0" Grid.Row="0"/>
-                        <Image Source="Assets/Square150x150Logo.scale-200.png" Grid.Column="2" Grid.Row="0"/>
-                        <Image Source="Assets/Square150x150Logo.scale-200.png" Grid.Column="4" Grid.Row="0"/>
-                        <Image Source="Assets/Square150x150Logo.scale-200.png" Grid.Column="0" Grid.Row="2"/>
-                        <Image Source="Assets/Square150x150Logo.scale-200.png" Grid.Column="2" Grid.Row="2"/>
-                        <Image Source="Assets/Square150x150Logo.scale-200.png" Grid.Column="4" Grid.Row="2"/>
-                    </Grid>
+                    <RelativePanel>
+                        <Image Source="Assets/Square150x150Logo.scale-200.png" Height="200"  x:Name="r1"/>
+                        <Image Source="Assets/Square150x150Logo.scale-200.png" Height="200" RelativePanel.RightOf="{Binding ElementName=r1}" x:Name="r2"/>
+                        <Image Source="Assets/Square150x150Logo.scale-200.png" Height="200" RelativePanel.RightOf="{Binding ElementName=r2}" x:Name="r3"/>
+                        <Image Source="Assets/Square150x150Logo.scale-200.png" Height="200" RelativePanel.Below="{Binding ElementName=r1}" x:Name="r4"/>
+                        <Image Source="Assets/Square150x150Logo.scale-200.png" Height="200" RelativePanel.Below="{Binding ElementName=r2}" RelativePanel.RightOf="{Binding ElementName=r4}" x:Name="r5"/>
+                        <Image Source="Assets/Square150x150Logo.scale-200.png" Height="200" RelativePanel.Below="{Binding ElementName=r3}" RelativePanel.RightOf="{Binding ElementName=r5}" x:Name="r6"/>
+                    </RelativePanel>
                 </DataTemplate>
             </HubSection>
             <HubSection Header="Contáctanos">
