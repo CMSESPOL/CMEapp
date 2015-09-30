@@ -7,7 +7,68 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    <Grid x:Name="mainGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="wideView">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="640" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="narrowView">
+                    <VisualState.Setters>
+                        <Setter Target="hub.(Header)" Value="Célula Microsoft ESPOL"/>
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Hub Header="Célula Estudiantil Microsoft ESPOL" d:LayoutOverrides="TopPosition, BottomPosition" x:Name="hub">
+            <Hub.Background>
+                <ImageBrush Stretch="UniformToFill" ImageSource="Assets/background.jpg"/>
+            </Hub.Background>
+            <HubSection Header="Quienes Somos">
+                <DataTemplate>
+                    <RelativePanel>
+                        <Image Source="Assets/Square150x150Logo.scale-200.png" Height="256" x:Name="pic"/>
+                        <TextBlock Text="asdasdasdasdasdasdasdasdasd" x:Name="text" RelativePanel.RightOf="pic"/>
+                    </RelativePanel>
+                </DataTemplate>
+            </HubSection>
+            <HubSection Header="Ramas">
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="128"/>
+                            <RowDefinition Height="16"/>
+                            <RowDefinition Height="128"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="128"/>
+                            <ColumnDefinition Width="16"/>
+                            <ColumnDefinition Width="128"/>
+                            <ColumnDefinition Width="16"/>
+                            <ColumnDefinition Width="128"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="Assets/Square150x150Logo.scale-200.png" Grid.Column="0" Grid.Row="0"/>
+                        <Image Source="Assets/Square150x150Logo.scale-200.png" Grid.Column="2" Grid.Row="0"/>
+                        <Image Source="Assets/Square150x150Logo.scale-200.png" Grid.Column="4" Grid.Row="0"/>
+                        <Image Source="Assets/Square150x150Logo.scale-200.png" Grid.Column="0" Grid.Row="2"/>
+                        <Image Source="Assets/Square150x150Logo.scale-200.png" Grid.Column="2" Grid.Row="2"/>
+                        <Image Source="Assets/Square150x150Logo.scale-200.png" Grid.Column="4" Grid.Row="2"/>
+                    </Grid>
+                </DataTemplate>
+            </HubSection>
+            <HubSection Header="Contáctanos">
+                <DataTemplate>
+                    <Grid/>
+                </DataTemplate>
+            </HubSection>
+        </Hub>
     </Grid>
 </Page>
